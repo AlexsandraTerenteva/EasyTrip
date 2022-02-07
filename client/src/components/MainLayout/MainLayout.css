@@ -1,0 +1,16 @@
+.main-layout {
+  min-height: 100vh;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+header.ant-layout-header {
+  display: flex;
+  justify-content: space-between;
+}
+.ligth {
+  background:  #d7dfeb !important;
+}
+.dark {
+  background: #fcdce4 !important;
+}

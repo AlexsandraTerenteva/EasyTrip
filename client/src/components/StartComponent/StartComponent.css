@@ -1,0 +1,42 @@
+.main-bg-right {
+  max-height: 230px;
+}
+
+.main-bg-left {
+  max-height: 230px;
+  margin-bottom: 50px;
+}
+
+.auto {
+  margin: auto;
+}
+
+@media screen and (max-width: 1500px) {
+  .main-bg-right {
+    max-height: 210px;
+  }
+  
+  .main-bg-left {
+    max-height: 210px;
+  }
+  
+}
+
+@media screen and (max-width: 1300px) {
+  .main-bg-right {
+    max-height: 150px;
+  }
+  
+  .main-bg-left {
+    max-height: 150px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .main-bg-right {
+    display: none;
+  }
+  
+  .main-bg-left {
+    display: none;
+  }
+}

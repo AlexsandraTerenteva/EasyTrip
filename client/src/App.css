@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Adler Pro Blockletter';
+  src: local('Adler Pro Blockletter'), url(./fonts/Adlery-Pro-Blockletter.ttf.woff) format('truetype');
+}
+
+@font-face {
+  font-family: 'Playlist script';
+  src: local('Playlist scriptr'), url(./fonts/Playlist_Script.ttf) format('truetype');
+}
+
+header.ant-layout-header {
+  background: #d7dfeb;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ant-modal-body {
+  text-align: center
+}
+
+.ant-form {
+  text-align: center
+}
+div .ant-card-body {
+  padding-top: 0;
+}
+.title-fint-adler{
+  font-family: 'Adler Pro Blockletter';
+  font-weight: thin;
+  letter-spacing: .2rem;
+}
+
+.title-font-playlist {
+  font-family: 'Playlist script';
+  letter-spacing: .7rem;
+}
+
+.title-font-playlist .main {
+  color: '#004aad',;
+  font-size: 80; 
+  margin: 0; 
+}
+
+.img-slider {
+  position: relative;
+  z-index: 1;
+}
+.block-slider-card{
+  position: absolute;
+  width: 94%;
+  height: 98%;
+  z-index: 10;
+  text-align: center;
+  background-color: rgba(31, 30, 30, 0.4);
+}
+
+.title-slider-card {
+  padding-top: 90px;
+  
+}

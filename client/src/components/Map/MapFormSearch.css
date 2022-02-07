@@ -1,0 +1,35 @@
+
+ .login-form-button {
+  width: 100%;
+}
+.ballon-airline {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.link {
+  text-transform: uppercase;
+  background: royalblue;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 3px;
+}
+.link:hover {
+  color: #fff;
+  background-color: rgb(91, 125, 226);
+}
+
+.ballon-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.ant-modal-mask {
+  background-color: transparent !important;
+}
+
+.ant-modal-content {
+  box-shadow: none !important;
+}
+
