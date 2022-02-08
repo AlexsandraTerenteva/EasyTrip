@@ -28,10 +28,10 @@ import {
 } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import ModalMainForm from '../ModalMainForm';
-import * as actions from '../../store/actions/cities';
-import * as actionsIndex from '../../store/actions';
-import store from '../../store';
-import toUpFirstLetter from '../../utils/toUpFirstLetter';
+import * as actions from '../../../store/actions/cities';
+import * as actionsIndex from '../../../store/actions';
+import store from '../../../store';
+import toUpFirstLetter from '../../../utils/toUpFirstLetter';
 import './MainForm.css';
 
 const { Option } = Select;
@@ -180,10 +180,6 @@ const MainForm = () => {
                 size="large"
                 style={{ boxShadow: '0px 5px 10px 2px rgba(34, 60, 80, 0.2)', marginRight: 10, width: 180  }}
               />
-            </Form.Item>
-
-            <Form.Item name="modal">
-              <ModalMainForm />
             </Form.Item>
 
             <Form.Item name="button">

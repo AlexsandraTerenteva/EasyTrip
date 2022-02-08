@@ -56,14 +56,13 @@ async function sendEmailExcursion(payload) {
     raw: true,
   });
   const cityName = cities.filter((element) => element.code === cityIATA)[0].name;
-  console.log('cityName: ~~~~~~ ', cityName);
   const pdfDoc = new PDFDocument({ margin: 30, size: 'A4' });
   pdfDoc.font('fonts/Roboto-Regular.ttf');
 
   // file name
   // pdfDoc.pipe(fs.createWriteStream('./file-table.pdf'));
-  pdfDoc.pipe(fs.createWriteStream('excursion.pdf'));
-  pdfDoc.image('easy3small.png');
+  pdfDoc.pipe(fs.createWriteStream('pdf/excursion.pdf'));
+  pdfDoc.image('img/easy3small.png');
   pdfDoc.image(logo);
   pdfDoc.fontSize(16);
 
@@ -149,7 +148,7 @@ async function sendEmailExcursion(payload) {
     attachments: [
       { // utf-8 string as an attachment
         filename: 'excursion.pdf',
-        path: './excursion.pdf',
+        path: './pdf/excursion.pdf',
         contentType: 'application/pdf',
       }],
     function(err, info) {

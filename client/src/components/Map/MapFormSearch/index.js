@@ -34,8 +34,6 @@ export default function MapFormSearch({ originCity }) {
     setValue(toUpFirstLetter(e.target.value));
     store.subscribe(() => setFromCitiesSelect(store.getState().cities.cities));
     const allState = store.getState().cities;
-    console.log(fromCitiesSelect, '3Я местный стейт откуда');
-    console.log(allState, '4Я весь стейт откуда');
   };
 
   const optionsFromCities = fromCitiesSelect.map((option, i, options) => (
@@ -58,7 +56,7 @@ export default function MapFormSearch({ originCity }) {
         boxShadow: '0px 5px 10px 2px rgba(34, 60, 80, 0.2)',
       }}
     >
-      <img src="mapphoto.png" alt="map" />
+      <img src="img/mapphoto.png" alt="map" />
       <Form.Item
         name="origin_city"
         rules={[{ required: true, message: 'Введите название города' }]}

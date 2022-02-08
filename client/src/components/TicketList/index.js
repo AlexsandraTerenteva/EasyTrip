@@ -3,7 +3,7 @@ import {
   Row, Col, Typography, Spin, BackTop,
 } from 'antd';
 import TicketItem from './TicketItem';
-import MainForm from '../MainForm';
+import MainForm from '../Main/MainForm';
 
 const style = {
   height: 40,

@@ -76,7 +76,7 @@ export default function PersonalArea() {
             color: '#1457b4',
           }}
         >
-          <img src="profile.png" alt="profile" />
+          <img src="img/profile.png" alt="profile" />
           <Title level={3} style={{ color: '#004aad' }}>{auth?.username}</Title>
           <ProfileBox length={data?.data?.length} />
           <Menu style={{ borderRight: 'none' }}>

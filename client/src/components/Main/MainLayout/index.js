@@ -3,8 +3,8 @@ import {
 } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
 import { Outlet } from 'react-router-dom';
-import Navigation from '../Navigation';
-import { useThemeContext } from '../../context/themeContext';
+import Navigation from '../../Navigation';
+import { useThemeContext } from '../../../context/themeContext';
 import './MainLayout.css';
 
 const { Header, Footer, Content } = Layout;
@@ -15,7 +15,7 @@ export default function MainLayout() {
     <Layout className={`main-layout ${theme}`}>
       <Header className={`${theme}`}>
         <div>
-          <img src="/mainlogo.png" alt="logo" />
+          <img src="img/logo/mainlogo.png" alt="logo" />
           {' '}
         </div>
         <Navigation />

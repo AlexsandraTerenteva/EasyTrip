@@ -6,7 +6,7 @@ const PDFDocument = require('pdfkit-table');
 const fs = require('fs');
 const dayjs = require('dayjs');
 const updateLocale = require('dayjs/plugin/updateLocale');
-// const { User } = require('../../db/models');
+
 dayjs.extend(updateLocale);
 dayjs.updateLocale('en', {
   monthsShort: [
@@ -22,7 +22,6 @@ dayjs.updateLocale('en', {
 router
   .route('/')
   .get(async (req, res) => {
-    console.log('Прилетел get-request по ручке /sendemail!');
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
@@ -39,15 +38,11 @@ router
     res.json(200);
   })
   .post(async (req, res) => {
-    console.log('Прилетел post-request по ручке /user/sendticketbyemail!');
-    console.log('req.body.userTicket: ', req.body.userTicket);
-    // const { destinationCity } = req.body.userTicket;
+    // Прилетел post-request по ручке /user/sendticketbyemail!
     const { userTicket } = req.body;
     const { auth } = req.body;
-    // console.log(req.session.user);
     let emailAddress;
     if (auth.email === req.session.user.email) {
-      // console.log('Все ок, auth.email === req.session.user.email');
       emailAddress = auth.email;
     } else {
       console.log('ERROR: auth.email !== req.session.user.email');
@@ -59,15 +54,12 @@ router
       departure_at,
       destination,
       destinationCity,
-      //   destination_airport,
       duration,
       flight_number,
       link,
       origin,
       originCity,
-      //   origin_airport,
       price,
-      //   return_transfers,
       transfers,
     } = userTicket;
     const departureAt = userTicket.departure_at;
@@ -78,9 +70,9 @@ router
     doc.font('fonts/Roboto-Regular.ttf');
 
     // file name
-    doc.pipe(fs.createWriteStream('./ticket.pdf'));
+    doc.pipe(fs.createWriteStream('./pdf/ticket.pdf'));
 
-    doc.image('easy3small.png');
+    doc.image('img/easy3small.png');
     // table
     const table = {
       title: '',
@@ -133,7 +125,7 @@ router
         // indexColumn === 0 && doc.addBackground(rectRow, 'blue', 0.15);
       },
     }); // is a Promise to async/await function
-    doc.image('airplane.png', 85, 280, { scale: 0.5 });
+    doc.image('img/airplane.png', 85, 280, { scale: 0.5 });
     // doc.image('airplane.png');
     // done!
     doc.end();
@@ -164,7 +156,7 @@ router
       attachments: [
         { // utf-8 string as an attachment
           filename: 'ticket.pdf',
-          path: './ticket.pdf',
+          path: './pdf/ticket.pdf',
           contentType: 'application/pdf',
         }],
       function(err, info) {

@@ -3,7 +3,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 const router = require('express').Router();
-// const axios = require('axios');
 const { Ticket } = require('../../db/models');
 
 // /user/personalticket
@@ -61,8 +60,6 @@ router
     res.end();
   }).delete(async (req, res) => {
     console.log('Прилетел delete-request по ручке /user/personalticket!');
-    console.log('req.body.userTicket: ', req.body.userTicket);
-    console.log('req.body.auth: ', req.body.auth);
     await Ticket.destroy({
       where: {
         id: req.body.userTicket.id,
@@ -79,18 +76,15 @@ router
   .route('/sort')
   .post(async (req, res) => {
     const { auth } = req.body;
-    console.log(auth, '=============прилетел REQUEST на СОРТИРОВАННЫЕ билеты================');
     const personalTickets = await Ticket.findAll({
       where: { user_id: auth.id },
       order: [
-        // Will escape title and validate DESC against a list of valid direction parameters
         ['departure_at', 'ASC'],
       ],
       raw: true,
     });
     console.log(personalTickets);
     res.json({ success: true, data: personalTickets });
-    console.log('+++++++++++++++++++++++++++++++++++++++++++++++');
     res.end();
   });
 

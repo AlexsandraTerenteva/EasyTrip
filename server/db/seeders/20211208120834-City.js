@@ -1,4 +1,4 @@
-const { renderCities, renderAirLines, renderAirPorts } = require('../../render');
+const { renderCities, renderAirLines, renderAirPorts } = require('../../utils/render');
 
 module.exports = {
   up: async (queryInterface) => {

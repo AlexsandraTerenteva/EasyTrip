@@ -15,7 +15,7 @@ export default function ModalBooking({
       onSelected={onSelected}
       onDateSelected={onDateSelected}
     >
-      <img src="1.png" />
+      <img src="img/logo-ticket.png" />
       <Title level={3} style={{ color: '#1457b4' }}>Забронировать</Title>
       <FormBooking
         availableDates={availableDates}

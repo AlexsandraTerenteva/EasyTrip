@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import MainLayout from './components/MainLayout';
+import MainLayout from './components/Main/MainLayout';
 import MapCities from './components/Map';
 import * as actions from './store/actions/user';
 import TicketList from './components/TicketList';

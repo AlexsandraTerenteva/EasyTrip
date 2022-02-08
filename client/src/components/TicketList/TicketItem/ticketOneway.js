@@ -44,7 +44,7 @@ const TicketOneway = ({ ticket }) => {
         okText="Купить билет"
         cancelText="Закрыть"
       >
-        <img src="/1.png" />
+        <img src="img/logo-ticket.png" />
         {' '}
         <h2>
           {ticket.originCity}

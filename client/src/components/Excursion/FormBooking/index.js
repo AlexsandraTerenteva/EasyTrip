@@ -39,7 +39,7 @@ export default function FormBooking({
           size="large"
           name="userName"
           onChange={(onChange)}
-          style={{ height: 40, textAlign: 'left' }}
+          style={{ height: 40, textAlign: 'left', width: 250 }}
         />
       </Form.Item>
       <Form.Item
@@ -54,7 +54,7 @@ export default function FormBooking({
           size="large"
           name="phone"
           onChange={(onChange)}
-          style={{ height: 40, textAlign: 'left' }}
+          style={{ height: 40, textAlign: 'left', width: 250 }}
         />
       </Form.Item>
       <Form.Item
@@ -71,7 +71,7 @@ export default function FormBooking({
           placeholder="Количество персон"
           size="large"
           showSearch
-          style={{ width: 200, textAlign: 'left' }}
+          style={{ width: 200, textAlign: 'left', width: 250 }}
           optionFilterProp="children"
         >
           <Option value="1">1</Option>
@@ -92,7 +92,7 @@ export default function FormBooking({
           size="large"
           name="date"
           onChange={onDateSelected}
-          style={{ width: 200, textAlign: 'left' }}
+          style={{ width: 200, textAlign: 'left', width: 250 }}
           placeholder="Доступные даты"
           optionFilterProp="children"
         >

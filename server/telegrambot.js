@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 const TelegramApi = require('node-telegram-bot-api');
+require('dotenv').config();
 
-const token = '5228838419:AAG_J9fH9x24Jp-L4MSRMyHyt8Kb0WBxa8Y';
+const token = process.env.TOKEN_BOT;
 const bot = new TelegramApi(token, { polling: true });
 const startBot = () => {
   const buttons = {
@@ -26,11 +27,11 @@ const startBot = () => {
     }
     if (text === '/ticket') {
       await bot.sendMessage(chatId, 'Отправляю Ваш билет!');
-      return bot.sendDocument(chatId, 'ticket.pdf');
+      return bot.sendDocument(chatId, 'pdf/ticket.pdf');
     }
     if (text === '/excursion') {
       await bot.sendMessage(chatId, 'Отправляю сведения о предстоящей экскурсии!');
-      return bot.sendDocument(chatId, 'excursion.pdf');
+      return bot.sendDocument(chatId, 'pdf/excursion.pdf');
     }
     return bot.sendMessage(chatId, 'Ваша команда не распознана, попробуйте еще раз!');
   });
@@ -38,11 +39,11 @@ const startBot = () => {
     const chatId = msg.message.chat.id;
     if (msg.data === 'ticket') {
       await bot.sendMessage(chatId, 'Отправляю Ваш билет!');
-      return bot.sendDocument(chatId, 'ticket.pdf');
+      return bot.sendDocument(chatId, 'pdf/ticket.pdf');
     }
     if (msg.data === 'excursion') {
       await bot.sendMessage(chatId, 'Отправляю сведения о предстоящей экскурсии!');
-      return bot.sendDocument(chatId, 'excursion.pdf');
+      return bot.sendDocument(chatId, 'pdf/excursion.pdf');
     }
     if (msg.data === 'auth') {
       await bot.sendMessage(chatId, 'Введите email');

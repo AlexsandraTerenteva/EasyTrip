@@ -3,7 +3,7 @@ const fs = require('fs');
 function renderCities() {
   const cities = [];
 
-  const newData = fs.readFileSync('./cities.json', 'utf-8');
+  const newData = fs.readFileSync('./dataDB/cities.json', 'utf-8');
   const data = JSON.parse(newData);
 
   data.forEach((city) => {
@@ -23,7 +23,7 @@ function renderCities() {
 
 function renderAirLines() {
   const airlines = [];
-  const newData = fs.readFileSync('./airlines.json', 'utf-8');
+  const newData = fs.readFileSync('./dataDB/airlines.json', 'utf-8');
   const data = JSON.parse(newData);
 
   data.forEach((line) => {
@@ -38,7 +38,7 @@ function renderAirLines() {
 
 function renderAirPorts() {
   const airPorts = [];
-  const newData = fs.readFileSync('./airports.json', 'utf-8');
+  const newData = fs.readFileSync('./dataDB/airports.json', 'utf-8');
   const data = JSON.parse(newData);
 
   data.forEach((port) => {

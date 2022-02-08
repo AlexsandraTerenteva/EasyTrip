@@ -2,7 +2,7 @@ import {
   Layout, Button, Row, Col,
 } from 'antd';
 import { Link } from 'react-router-dom';
-import CarouselComponent from '../Carousel';
+import CarouselComponent from '../../Carousel';
 
 const {
   Content,

@@ -30,7 +30,7 @@ function CarouselComponent() {
                   className="img-slider"
                   width={350}
                   height={250}
-                  src="carousel-london.webp"
+                  src="img/carousel/carousel-london.webp"
                   preview={false}
                   onClick={() => onClick('LON')}
                   style={{ boxShadow: '5px 2px 10px 2px rgba(34, 60, 80, 0.2)' }}
@@ -41,7 +41,7 @@ function CarouselComponent() {
                   className="img-slider"
                   width={350}
                   height={250}
-                  src="/carousel-paris.jpg"
+                  src="img/carousel/carousel-paris.jpg"
                   preview={false}
                   onClick={() => onClick('PAR')}
                   style={{ boxShadow: '5px 2px 10px 2px rgba(34, 60, 80, 0.2)' }}
@@ -52,7 +52,7 @@ function CarouselComponent() {
                   className="img-slider"
                   width={350}
                   height={250}
-                  src="carousel-berlin.jpg"
+                  src="img/carousel/carousel-berlin.jpg"
                   preview={false}
                   onClick={() => onClick('BER')}
                   style={{ boxShadow: '5px 2px 10px 2px rgba(34, 60, 80, 0.2)' }}
@@ -67,7 +67,7 @@ function CarouselComponent() {
                   className="img-slider"
                   width={350}
                   height={250}
-                  src="carousel-rome.jpg"
+                  src="img/carousel/carousel-rome.jpg"
                   preview={false}
                   onClick={() => onClick('ROM')}
                   style={{ boxShadow: '5px 2px 10px 2px rgba(34, 60, 80, 0.2)' }}
@@ -78,7 +78,7 @@ function CarouselComponent() {
                   className="img-slider"
                   width={350}
                   height={250}
-                  src="carousel-spb.jpg"
+                  src="img/carousel/carousel-spb.jpg"
                   preview={false}
                   onClick={() => onClick('LED')}
                   style={{ boxShadow: '5px 2px 10px 2px rgba(34, 60, 80, 0.2)' }}
@@ -89,7 +89,7 @@ function CarouselComponent() {
                   className="img-slider"
                   width={350}
                   height={250}
-                  src="carousel-sochi.jpg"
+                  src="img/carousel/carousel-sochi.jpg"
                   preview={false}
                   onClick={() => onClick('AER')}
                   style={{ boxShadow: '5px 2px 10px 2px rgba(34, 60, 80, 0.2)' }}

@@ -17,7 +17,6 @@ router
             email: user.email,
             id: user.id,
           };
-          console.log('session>>>', req.session);
           return res.json({
             username: user.name,
             email: user.email,
@@ -40,7 +39,6 @@ router
   .route('/registrate')
   .post(async (req, res) => {
     const { email, password, username } = req.body;
-    console.log('req.body>>>>>>', req.body);
     try {
       if (email && password && username) {
         const hashPass = await bcrypt.hash(password, 10);
@@ -49,14 +47,12 @@ router
           return res.status(400).json({ message: 'Пользователь уже существует' });
         }
         const newUser = await User.create({ name: username, password: hashPass, email });
-        console.log('newUser>>>>>>>>>>>>>>', newUser);
         if (newUser) {
           req.session.user = {
             username: newUser.name,
             email: newUser.email,
             id: newUser.id,
           };
-          console.log('session>>>', req.session);
           return res.json({
             username: newUser.name,
             email: newUser.email,
@@ -100,8 +96,6 @@ router
   .route('/newpass')
   .post(async (req, res) => {
     try {
-      console.log('session', req.session);
-      console.log('req.body', req.body);
       const { oldpass, newpass } = req.body;
       const user = await User.findOne({ where: { id: req.session.user?.id } });
       if (await bcrypt.compare(oldpass, user.password)) {

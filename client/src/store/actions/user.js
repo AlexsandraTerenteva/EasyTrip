@@ -1,9 +1,5 @@
 import * as types from '../types/user';
 
-export const addUser = (payload) => ({
-  type: types.ADD_USER,
-  payload,
-});
 // Получение координат расположения города пользователя
 export const getUserIpLoader = (payload) => ({
   type: types.GET_USER_IP_LOADER,

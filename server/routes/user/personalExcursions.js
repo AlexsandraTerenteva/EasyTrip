@@ -10,7 +10,6 @@ router
       const personalExcursins = await Booking.findAll({
         where: { user_id: iduser },
       });
-      console.log(personalExcursins);
       if (personalExcursins) {
         return res.json(personalExcursins);
       }

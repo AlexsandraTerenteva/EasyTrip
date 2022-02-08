@@ -6,7 +6,7 @@ export default function TicketDetale({ ticket, origin }) {
   const date = transformDate(ticket?.price?.depart_date, 'D MMMM YYYY, dddd');
   return (
     <>
-      <img src="/1.png" />
+      <img src="img/logo-ticket.png" />
       <h2>
         {origin.name}
         {' '}
