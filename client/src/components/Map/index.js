@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -7,6 +6,7 @@ import {
 import { Space, Spin } from 'antd';
 import PlaceMarkList from './PlaceMarketList';
 import MapFormSearch from './MapFormSearch';
+import getCoordination from '../../utils/getCoordination';
 import * as actions from '../../store/actions/map';
 
 export default function MapCities() {
@@ -27,18 +27,10 @@ export default function MapCities() {
     }
   }, [data]);
 
-  function getCoordination(coordinates) {
-    if (Array.isArray(coordinates)) {
-      return [coordinates[1], coordinates[0]];
-    }
-    const location = coordinates?.split(':').map((item) => Number(item));
-    return [location[1], location[0]];
-  }
-
   if (map.loading) return <Spin size="large" style={{ marginTop: 300, marginLeft: 850 }} />;
 
   return (
-    <Space align="start">
+    <Space align="start" className="margin-top">
       <MapFormSearch originCity={origin?.name} />
       <YMaps>
         <Map
@@ -56,7 +48,7 @@ export default function MapCities() {
 
             }}
           />
-          <PlaceMarkList data={map} originCity={origin.name} />
+          <PlaceMarkList />
         </Map>
       </YMaps>
     </Space>

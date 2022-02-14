@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
-/* eslint-disable max-len */
 import {
   Form, Select, Button, DatePicker,
 } from 'antd';
@@ -83,7 +82,9 @@ export default function FormSeachExcursions() {
           style={{ width: 200, boxShadow: '0px 5px 10px 2px rgba(34, 60, 80, 0.2)', textAlign: 'left' }}
           placeholder="Куда"
           optionFilterProp="children"
-          filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+          filterOption={(input, option) => option.children
+            .toLowerCase()
+            .indexOf(input.toLowerCase()) >= 0}
           filterSort={(optionA, optionB) => optionA.children
             .toLowerCase()
             .localeCompare(optionB.children.toLowerCase())}

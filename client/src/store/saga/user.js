@@ -39,7 +39,6 @@ function* regUser(action) {
   const { payload } = action;
   try {
     const { data } = yield call(() => axios.post('http://localhost:4000/auth/registrate', payload, { withCredentials: true }));
-    console.log(data);
     yield put(actions.regUserSuccess(data));
   } catch (error) {
     yield put(actions.regUserError(error));
@@ -80,7 +79,6 @@ function* getUserExcursions() {
 function* deleteUserBokingExcursion(action) {
   const { payload } = action;
   try {
-    console.log('payload Saga', payload);
     const { data } = yield call(axios.delete, `http://localhost:4000/user/excursions/${payload}`, { withCredentials: true });
     if (data) {
       yield put(actions.getUserExcursionsSuccess(data));
@@ -91,7 +89,6 @@ function* deleteUserBokingExcursion(action) {
 }
 function* newUserPass(action) {
   const { payload } = action;
-  console.log(payload, 'новый пароль в саге');
   yield call(() => axios.post('http://localhost:4000/auth/newpass', payload, { withCredentials: true }));
 }
 

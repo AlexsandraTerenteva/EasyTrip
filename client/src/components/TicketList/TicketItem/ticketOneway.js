@@ -1,6 +1,5 @@
-import './ticketstyle.css';
 import dayjs from 'dayjs';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -10,6 +9,7 @@ import calcAT from '../../../utils/calculateArrivalTime';
 import getDur from '../../../utils/getFlightDuration';
 import * as actions from '../../../store/actions/personalarea';
 import * as actionsIndex from '../../../store/actions';
+import './ticketstyle.css';
 
 const airportTimezone = require('airport-timezone');
 
@@ -159,4 +159,4 @@ const TicketOneway = ({ ticket }) => {
   );
 };
 
-export default TicketOneway;
+export default memo(TicketOneway);

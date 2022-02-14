@@ -31,7 +31,7 @@ function TicketList() {
         <>
           <MainForm />
           <div className="example">
-            <Title className="title-fint-adler" level={2} style={{ color: '#1457b4' }}>Извините, билетов по заданным условиям поиска не найдено</Title>
+            <Title className="title-font-adler" level={2} style={{ color: '#1457b4' }}>Извините, билетов по заданным условиям поиска не найдено</Title>
           </div>
         </>
       );
@@ -43,7 +43,7 @@ function TicketList() {
       <MainForm />
       <Row>
         <div className="example" style={{ marginBottom: 0, marginTop: 0 }}>
-          <label className="title-fint-adler" style={{ color: '#004aad', marginBottom: 30, fontSize: 30 }}>
+          <label className="title-font-adler" style={{ color: '#004aad', marginBottom: 30, fontSize: 30 }}>
             Найдено билетов по данному направлению:
           </label>
           <label style={{ color: '#004aad', fontSize: 25, fontStyle: 'italic' }}>

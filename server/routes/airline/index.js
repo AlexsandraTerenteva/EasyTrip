@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const router = require('express').Router();
-const { Airline } = require('../../../db/models');
+const { Airline } = require('../../db/models');
 
 router
   .route('/')

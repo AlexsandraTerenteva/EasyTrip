@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
-/* eslint-disable no-console */
 const router = require('express').Router();
 const { Ticket } = require('../../db/models');
 
@@ -14,7 +13,6 @@ router
     const personalTicket = await Ticket.findAll({
       where: { user_id: iduser },
     });
-    console.log(personalTicket);
     res.json({ success: true, data: personalTicket });
   })
   .post(async (req, res) => {
@@ -58,8 +56,8 @@ router
       user_id: req.session?.user?.id,
     });
     res.end();
-  }).delete(async (req, res) => {
-    console.log('Прилетел delete-request по ручке /user/personalticket!');
+  })
+  .delete(async (req, res) => {
     await Ticket.destroy({
       where: {
         id: req.body.userTicket.id,
@@ -68,7 +66,6 @@ router
     const personalTickets = await Ticket.findAll({
       where: { user_id: req.body.auth.id },
     });
-    console.log('Оставшиеся в базе билеты этого юзера: ', personalTickets);
     res.json({ success: true, data: personalTickets });
   });
 
@@ -83,7 +80,6 @@ router
       ],
       raw: true,
     });
-    console.log(personalTickets);
     res.json({ success: true, data: personalTickets });
     res.end();
   });

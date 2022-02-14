@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import {
   Spin, Typography, Col,
 } from 'antd';
@@ -23,8 +22,8 @@ export default function ExcursionList({ data }) {
     );
   }
   return data.map((item) => (
-    <Col offset={8}>
-      <ExcursionCard key={item.id} data={item} />
+    <Col offset={8} key={item.content}>
+      <ExcursionCard data={item} />
     </Col>
   ));
 }

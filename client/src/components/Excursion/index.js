@@ -24,7 +24,6 @@ export default function Excursions() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.excursions);
   const { location } = useSelector((state) => state.user?.data);
-  console.log('data excursions', data.data);
 
   useEffect(() => {
     if (location) dispatch(actions.getExcursionsCityStart({ city: location?.iata }));
@@ -47,7 +46,7 @@ export default function Excursions() {
   return (
     <>
       <Row justify="center">
-        <Title className="title-fint-adler" level={2} style={{ color: '#1457b4' }}>Выберите экскурсию</Title>
+        <Title className="title-font-adler" level={2} style={{ color: '#1457b4' }}>Выберите экскурсию</Title>
       </Row>
       <Row justify="center">
         <FormSeachExcursions />

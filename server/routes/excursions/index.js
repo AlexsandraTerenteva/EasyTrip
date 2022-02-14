@@ -20,8 +20,6 @@ router
     const {
       city, adults_count, currency, date,
     } = req.body;
-    // console.log('++++++++++++++++++++++++((', date, '))');
-
     try {
       const { data } = await axios.get(`https://api.travelpayouts.com/weatlas/v1/search_prices_by_iata?code=${city}&currency=${currency ?? 'RUB'}&date=${date ?? ''}&adults_count=${adults_count ?? '2'}&token=${apiKey}`);
       if (data) {
@@ -32,10 +30,7 @@ router
           availableDates[i].available_dates = arrDate;
           newAvailableDates.push(availableDates[i]);
         }
-        // console.log('====================', availableDatesOne);
-        
         if (date) {
-          // console.log('Провалились в наличие даты');
           const availableDatesOne = availableDates.filter((item) => item.available_dates.includes(date));
           const newNewAvailableDates = [];
           for (let i = 0; i < availableDatesOne.length; i++) {
@@ -44,9 +39,6 @@ router
           }
           return res.json(newNewAvailableDates);
         }
-
-        // console.log('<<<<<<<<<<<<<<<<<', availableDates);
-        // console.log('Провалились в отсутствие даты <+++++++++++++++++++');
         return res.json(availableDates);
       }
       throw Error({ message: 'Данных нет' });
@@ -58,8 +50,6 @@ router
 router
   .route('/booking')
   .post(async (req, res) => {
-    console.log('body', req.body);
-    console.log('sesion', req.session);
     const {
       content,
       city_iata,
@@ -94,7 +84,6 @@ router
         excursion_type,
         user_id: req.session.user.id,
       }));
-      console.log('bookingExcursion', bookingExcursion);
       const payload = {
         content,
         cityIATA: city_iata,

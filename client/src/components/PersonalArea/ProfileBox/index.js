@@ -1,34 +1,16 @@
-/* eslint-disable no-alert */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable react/state-in-constructor */
 import {
   Drawer, List, Form, Button, Input, Avatar, Space,
 } from 'antd';
-import { UserOutlined, EditOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import axios from 'axios';
 import store from '../../../store';
 
-const DescriptionItem = ({ title, content }) => (
-  <div className="site-description-item-profile-wrapper">
-    <p className="site-description-item-profile-p-label">
-      {title}
-      :
-    </p>
-    {content}
-  </div>
-);
-
 const allState = store.getState();
-console.log('allState', allState);
 
 class ProfileBox extends React.Component {
   state = {
@@ -49,9 +31,7 @@ class ProfileBox extends React.Component {
   };
 
   onFinish = async (values) => {
-    console.log(values);
     const res = await axios.post('http://localhost:4000/auth/newpass', values, { withCredentials: true });
-    console.log(res.data);
     alert(res.data);
   };
 
@@ -71,6 +51,7 @@ class ProfileBox extends React.Component {
               key={item?.id}
               style={{ marginLeft: 0, textAlign: 'center' }}
               actions={[
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 <a onClick={this.showDrawer} key={`a-${item?.id}`}>
                   Редактировать профиль
                 </a>,

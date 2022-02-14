@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "@2gis/mapgl": "^1.22.0",
     "@ant-design/colors": "^6.0.0",

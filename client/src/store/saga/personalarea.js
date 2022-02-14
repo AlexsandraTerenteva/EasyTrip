@@ -8,21 +8,18 @@ import * as actionsS from '../actions/index';
 function* getPersonalTicketList(action) {
   const { type, payload } = action;
   const userID = payload;
-  console.log(userID, 'Сага до обращения к серверу за личными билетами');
   const { data } = yield call(
     axios.get,
     'http://localhost:4000/user/personalticket',
 
     { withCredentials: true },
   );
-  console.log(data, 'Сага с личными билетами');
   yield put(actionsS.getSliderResSuccess({ data }));
 }
 
 //! отправка купленного билета в БД
 function* givePersonalTicket(action) {
   const { type, payload } = action;
-  console.log(payload, 'Сага до отправки личного билета в БД');
   const userTicket = payload.ticket;
   const { auth } = payload;
   const { data } = yield call(axios.post, 'http://localhost:4000/user/personalticket', {
@@ -36,11 +33,9 @@ function* givePersonalTicket(action) {
 //! удаление билета в БД
 function* deletePersonalTicket(action) {
   const { type, payload } = action;
-  console.log(payload, 'Сага удаления личного билета в БД');
   const userTicket = payload.ticket;
   const { auth } = payload;
   const { sorted } = payload;
-  console.log('sorted from personalAreaSaga: ', sorted);
   const { data } = yield call(axios.delete, 'http://localhost:4000/user/personalticket', {
     data: { userTicket, auth },
   }, { withCredentials: true });
@@ -54,15 +49,10 @@ function* deletePersonalTicket(action) {
 //! сортировка списка билетов из БД
 function* sortPersonalTicket(action) {
   const { type, payload } = action;
-  console.log(payload, 'Сага сортировки списка билетов из БД');
   const auth = payload;
-  console.log('auth from sortPersonalTicket: ', auth);
   const { data } = yield call(axios.post, 'http://localhost:4000/user/personalticket/sort', { auth }, { withCredentials: true });
-  console.log(data);
   const newData = data.data.filter((item) => new Date(item.departure_at) > Date.now());
   const newDataData = { success: true, data: newData };
-  console.log(newData);
-  console.log(newDataData);
   yield put(actionsS.getSliderResSuccess({ data: newDataData }));
 }
 

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import ContainerOneway from './containerOneway';
 import ContainerOnewayDark from './containerOnewayDark';
 import ContainerBothway from './containerBothway';
@@ -23,4 +24,4 @@ const TicketPersonal = ({ ticket }) => {
     <ContainerBothway ticket={ticket} />);
 };
 
-export default TicketPersonal;
+export default memo(TicketPersonal);

@@ -12,7 +12,6 @@ export default function FormRegistrate() {
 
   const [form] = Form.useForm();
   const onFinish = (values) => {
-    console.log({ values });
     dispatch(actions.regUserStart(values));
     navigate('/');
     form.resetFields();

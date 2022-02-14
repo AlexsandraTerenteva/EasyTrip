@@ -1,13 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable max-len */
-/* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable react/no-unstable-nested-components */
-/* eslint-disable no-multi-spaces */
-/* eslint-disable arrow-parens */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import locale from 'antd/es/date-picker/locale/ru_RU';
@@ -17,17 +10,10 @@ import {
   Col,
   Row,
   Select,
-  InputNumber,
   DatePicker,
-  AutoComplete,
-  Cascader,
-  Tooltip,
   Form,
-  Modal,
-  ConfigProvider,
 } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import ModalMainForm from '../ModalMainForm';
 import * as actions from '../../../store/actions/cities';
 import * as actionsIndex from '../../../store/actions';
 import store from '../../../store';
@@ -129,7 +115,9 @@ const MainForm = () => {
                 }}
                 placeholder="Откуда"
                 optionFilterProp="children"
-                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                filterOption={(input, option) => option.children
+                  .toLowerCase()
+                  .indexOf(input.toLowerCase()) >= 0}
                 filterSort={(optionA, optionB) => optionA.children
                   .toLowerCase()
                   .localeCompare(optionB.children.toLowerCase())}
@@ -149,7 +137,9 @@ const MainForm = () => {
                 }}
                 placeholder="Куда"
                 optionFilterProp="children"
-                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                filterOption={(input, option) => option.children
+                  .toLowerCase()
+                  .indexOf(input.toLowerCase()) >= 0}
                 filterSort={(optionA, optionB) => optionA.children
                   .toLowerCase()
                   .localeCompare(optionB.children.toLowerCase())}
@@ -178,7 +168,7 @@ const MainForm = () => {
                 locale={locale}
                 allowClear="false"
                 size="large"
-                style={{ boxShadow: '0px 5px 10px 2px rgba(34, 60, 80, 0.2)', marginRight: 10, width: 180  }}
+                style={{ boxShadow: '0px 5px 10px 2px rgba(34, 60, 80, 0.2)', marginRight: 10, width: 180 }}
               />
             </Form.Item>
 

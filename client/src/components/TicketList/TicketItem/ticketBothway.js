@@ -57,7 +57,7 @@ const TicketBothway = ({ ticket }) => {
         okText="Купить билет"
         cancelText="Закрыть"
       >
-        <img src="img/logo-ticket.png" />
+        <img src="img/logo-ticket.png" alt="logo" />
         {' '}
         <h2>
           {ticket.originCity}
@@ -93,7 +93,7 @@ const TicketBothway = ({ ticket }) => {
             ₽
           </h2>
           <h3 className="ballon-airline">
-            <img src={airlineLogoPath} />
+            <img src={airlineLogoPath} alt={ticket.airlineName} />
             {ticket.airlineName}
           </h3>
         </div>

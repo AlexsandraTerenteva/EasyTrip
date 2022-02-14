@@ -32,5 +32,3 @@ dayjs.updateLocale('en', {
 
 const date = '2022-01-20T18:37:49.584Z';
 const tryyy = dayjs(date).format('DD MMMM YYYY HH:mm');
-console.log(tryyy);
-console.log(dayjs.weekdays());

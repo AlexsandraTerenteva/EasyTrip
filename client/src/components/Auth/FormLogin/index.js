@@ -13,13 +13,11 @@ export default function FormLogin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  console.log(allState.user.data.auth);
   const [alrenNew, setAlertNew] = useState(allState.user.data.auth);
   store.subscribe(() => setAlertNew(store.getState()));
   const onFinish = (values) => {
     if (values) {
       dispatch(actions.authUserStart(values));
-      console.log(allState.user.data.auth, 'стэйт сразу после диспатча'); // добавил
     }
   };
 

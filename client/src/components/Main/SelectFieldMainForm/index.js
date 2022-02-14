@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { Select } from 'antd';
 
 const { Option } = Select;
@@ -9,8 +8,12 @@ const SelectFieldMainForm = () => (
     style={{ width: 200 }}
     placeholder="Search to Select"
     optionFilterProp="children"
-    filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-    filterSort={(optionA, optionB) => optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())}
+    filterOption={(input, option) => option.children
+      .toLowerCase()
+      .indexOf(input.toLowerCase()) >= 0}
+    filterSort={(optionA, optionB) => optionA.children
+      .toLowerCase()
+      .localeCompare(optionB.children.toLowerCase())}
   >
     <Option value="1">Not Identified</Option>
     <Option value="2">Closed</Option>

@@ -30,8 +30,7 @@ function* giveAwayInfoForTicket(action) {
   const {
     from, to, datefrom, dateto,
   } = payload;
-  console.log(payload);
-  const { data } = yield call(axios.post, 'http://localhost:4000/cities/tickets', {
+  const { data } = yield call(axios.post, 'http://localhost:4000/tickets', {
     origin: from, destination: to, departureAt: datefrom, returnAt: dateto,
   });
   yield put(actionsS.getSliderResSuccess({ data }));

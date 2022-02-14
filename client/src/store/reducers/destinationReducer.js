@@ -7,7 +7,6 @@ export default function destinationReducer(state = {}, actions) {
     case types.CHOOSE_DESTINATION: {
       const newState = { ...state };
       newState.destination = payload;
-      console.log(newState);
       return newState;
     }
 

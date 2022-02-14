@@ -71,13 +71,13 @@ export default function FormBooking({
           placeholder="Количество персон"
           size="large"
           showSearch
-          style={{ width: 200, textAlign: 'left', width: 250 }}
+          style={{ textAlign: 'left', width: 250 }}
           optionFilterProp="children"
         >
-          <Option value="1">1</Option>
-          <Option value="2">2</Option>
-          <Option value="3">3</Option>
-          <Option value="4">4</Option>
+          <Option key={1} value="1">1</Option>
+          <Option key={2} value="2">2</Option>
+          <Option key={3} value="3">3</Option>
+          <Option key={4} value="4">4</Option>
         </Select>
       </Form.Item>
 
@@ -92,7 +92,7 @@ export default function FormBooking({
           size="large"
           name="date"
           onChange={onDateSelected}
-          style={{ width: 200, textAlign: 'left', width: 250 }}
+          style={{ textAlign: 'left', width: 250 }}
           placeholder="Доступные даты"
           optionFilterProp="children"
         >

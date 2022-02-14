@@ -1,5 +1,4 @@
-/* eslint-disable no-underscore-dangle */
-import { useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   Card, Row, Col, Select, Button, Badge, Tag, Typography,
@@ -9,7 +8,6 @@ import ModalBooking from '../ExcusionModalBooking';
 import transformDate from '../../../utils/transformDate';
 import * as actions from '../../../store/actions/excursions';
 import { deleteUserBookingStart } from '../../../store/actions/user';
-import './ExcursionCard.css';
 
 const { Title } = Typography;
 const { Option } = Select;
@@ -20,7 +18,7 @@ const initialValue = {
   date: null,
 };
 
-export default function ExcursionCard({ data }) {
+function ExcursionCard({ data }) {
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [value, setValue] = useState(initialValue);
@@ -29,22 +27,26 @@ export default function ExcursionCard({ data }) {
   const checkDate = (date) => {
     const d1 = new Date();
     const d2 = new Date(date);
-    console.log({ d1, d2 });
     if (d1 > d2) return true;
     return false;
   };
+
   const onChange = (e) => {
     setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
   const onSelected = (e) => {
     setValue((prev) => ({ ...prev, members: e }));
   };
-  const onDateSelected = (e) => {
+
+  const onDateSelected = useCallback((e) => {
     setValue((prev) => ({ ...prev, date: e }));
-  };
+  }, []);
+
   const showModal = () => {
     setIsModalVisible(true);
   };
+
   const handleOk = () => {
     if (value.phone && value.date && value.members && value.userName) {
       dispatch(actions.postExcursionBookingStart({ ...value, ...data }));
@@ -53,7 +55,6 @@ export default function ExcursionCard({ data }) {
   };
 
   const handleCancel = () => {
-    console.log(value);
     setIsModalVisible(false);
   };
 
@@ -64,13 +65,13 @@ export default function ExcursionCard({ data }) {
   let optionsDate;
   if (Array.isArray(data?.available_dates)) {
     optionsDate = data?.available_dates?.map((option) => (
-      <Option key={option.id} value={option}>
+      <Option key={option.content} value={option}>
         {option}
       </Option>
     ));
   } else {
     optionsDate = (
-      <Option value={data?.available_dates}>
+      <Option key={1} value={data?.available_dates}>
         {data?.available_dates}
       </Option>
     );
@@ -78,13 +79,14 @@ export default function ExcursionCard({ data }) {
 
   return (
     <>
-      <Badge.Ribbon text={price} color="red" style={{ marginTop: 15 }}>
+      <Badge.Ribbon text={price} placement="start" color="red" style={{ marginTop: 15 }}>
         <Card
           className={() => (checkDate() ? 'past-date' : '')}
           title={data.content}
           hoverable
           style={{
-            maxWidth: 650,
+            textAlign: 'center',
+            width: 650,
             marginTop: 30,
             padding: 0,
             boxShadow: '0px 5px 10px 2px rgba(34, 60, 80, 0.2)',
@@ -123,7 +125,7 @@ export default function ExcursionCard({ data }) {
                   placeholder="Доступные даты"
                   optionFilterProp="children"
                 >
-                  {optionsDate || <Option value="no">Нет свободных мест</Option>}
+                  {optionsDate || <Option key="no" value="no">Нет свободных мест</Option>}
                 </Select>
               ) : (
                 <Title level={5}>
@@ -151,3 +153,5 @@ export default function ExcursionCard({ data }) {
     </>
   );
 }
+
+export default memo(ExcursionCard);

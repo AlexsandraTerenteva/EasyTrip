@@ -7,8 +7,6 @@ import * as actions from '../actions';
 function* getSliderRes(action) {
   const { payload } = action;
   const { destination } = payload;
-  console.log('saga function* getSliderRes(action)');
-  console.log('function* getSliderRes payload: ', payload);
   try {
     const getCorrectDate = (date) => {
       const correctMonth = (date.getMonth() < 9 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`);
