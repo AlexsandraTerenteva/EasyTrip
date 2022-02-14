@@ -24,6 +24,7 @@ function* getSliderRes(action) {
     const { data } = yield call(axios.post, 'http://localhost:4000/tickets', {
       origin: 'MOW', destination, departureAt: dayForSlider, returnAt: returnDate,
     });
+    console.log('data', data);
     yield put(actions.getSliderResSuccess({ data }));
   } catch (e) {
     yield put(actions.getSliderResError(e));

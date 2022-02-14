@@ -14,10 +14,10 @@ import './ticketstyle.css';
 const airportTimezone = require('airport-timezone');
 
 const TicketOneway = ({ ticket }) => {
+  const linkSearch = `https://www.aviasales.ru/${ticket.link}`;
   const { auth } = useSelector((state) => state.user.data);
   const depTime = ticket.departure_at;
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const showModal = () => {
     setIsModalVisible(true);
@@ -25,7 +25,7 @@ const TicketOneway = ({ ticket }) => {
   const handleOk = () => {
     dispatch(actionsIndex.getSliderResSuccess([]));
     dispatch(actions.givSagaPersonalTicketList({ ticket, auth }));
-    navigate('/personalarea');
+    window.location = linkSearch;
     setIsModalVisible(false);
   };
   const handleCancel = () => {
@@ -44,7 +44,7 @@ const TicketOneway = ({ ticket }) => {
         okText="Купить билет"
         cancelText="Закрыть"
       >
-        <img src="img/logo-ticket.png" />
+        <img src="img/logo-ticket.png" alt="logo" />
         {' '}
         <h2>
           {ticket.originCity}
@@ -72,7 +72,7 @@ const TicketOneway = ({ ticket }) => {
             ₽
           </h2>
           <h3 className="ballon-airline">
-            <img src={airlineLogoPath} />
+            <img src={airlineLogoPath} alt={ticket.airlineName} />
             {ticket.airlineName}
           </h3>
         </div>

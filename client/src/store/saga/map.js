@@ -49,6 +49,7 @@ function* findCurrentTicket(action) {
   };
   try {
     const { data } = yield call(axios.post, 'http://localhost:4000/tickets', ticketReq);
+    console.log('123', data);
     yield put(actions.findCurrentTicketSuccess(data));
     yield put(getSliderResSuccess({ data }));
   } catch (error) {
